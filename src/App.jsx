@@ -5,7 +5,7 @@ const SERVICES = [
   {
     id: 'sales',
     name: 'Sales & Demand Generation',
-    icon: '\uD83D\uDE80',
+    icon: '🚀',
     description: 'We build and manage go-to-market and outbound sales programmes across email, LinkedIn, phone, and video to build a qualified pipeline and close deals on your behalf.',
     tiers: [
       { id: 'starter', name: 'Starter', price: 1499, setup: 999, desc: 'Seed-funded companies building their first repeatable sales pipeline' },
@@ -25,7 +25,7 @@ const SERVICES = [
   {
     id: 'paid',
     name: 'Paid Advertising',
-    icon: '\uD83D\uDCE3',
+    icon: '📣',
     description: 'Accelerate your growth and acquire new customers with our fully managed ad campaigns across multiple digital channels including Google, Meta, TikTok, Pinterest, and more.',
     tiers: [
       { id: 'starter', name: 'Starter', price: 799, setup: 149, desc: 'For teams looking to acquire new customers across a search channel' },
@@ -47,7 +47,7 @@ const SERVICES = [
   {
     id: 'email',
     name: 'Email Marketing',
-    icon: '\u2709\uFE0F',
+    icon: '✉️',
     description: 'Maximise revenue with fully managed, personalised email campaigns that help increase advertising returns, retention and customer lifetime value.',
     tiers: [
       { id: 'starter', name: 'Starter', price: 799, setup: 249, desc: 'For early-stage SMEs looking to boost customer revenue' },
@@ -109,10 +109,10 @@ function TierCard({ tier, selected, onSelect, discount }) {
       <h4 className="tier-name">{tier.name}</h4>
       <p className="tier-desc">{tier.desc}</p>
       <div className="tier-pricing">
-        <span className="tier-price">\u00A3{monthlyPrice.toLocaleString()}</span>
+        <span className="tier-price">£{monthlyPrice.toLocaleString()}</span>
         <span className="tier-unit">/month</span>
       </div>
-      <p className="tier-setup">+ \u00A3{tier.setup.toLocaleString()} setup fee</p>
+      <p className="tier-setup">+ £{tier.setup.toLocaleString()} setup fee</p>
     </div>
   )
 }
@@ -128,7 +128,7 @@ function AddonCard({ addon, checked, onToggle }) {
             <span className="addon-name">{addon.name}</span>
           </div>
           {addon.price !== null ? (
-            <span className="addon-price">\u00A3{addon.price.toLocaleString()}<span className="addon-unit">{addon.unit}</span></span>
+            <span className="addon-price">£{addon.price.toLocaleString()}<span className="addon-unit">{addon.unit}</span></span>
           ) : (
             <span className="addon-price custom-price">Custom</span>
           )}
@@ -145,6 +145,7 @@ function ServiceSection({ service, selections, onTierSelect, onAddonToggle, expa
 
   return (
     <div className={`service-section ${expanded ? 'expanded' : ''} ${selectedTier ? 'has-selection' : ''}`}>
+      <div className="glass-frame" aria-hidden="true"></div>
       <div className="service-header" onClick={onToggleExpand}>
         <div className="service-header-left">
           <Checkbox
@@ -186,7 +187,7 @@ function ServiceSection({ service, selections, onTierSelect, onAddonToggle, expa
           {service.addons.length > 0 && (
             <div className="addons-section">
               <div className="addons-header">
-                <span className="addons-icon">\uD83E\uDDE9</span>
+                <span className="addons-icon">🧩</span>
                 <h4>Add-ons</h4>
               </div>
               <p className="addons-subtitle">Enhance your core services or purchase standalone to maximise conversion rates and customer lifetime value.</p>
@@ -257,6 +258,7 @@ function SummaryPanel({ selections, duration, discount }) {
 
   return (
     <div className="summary-panel">
+      <div className="glass-frame" aria-hidden="true"></div>
       <div className="summary-top">
         <h3 className="summary-title">Your Estimate</h3>
         <span className="summary-badge">{duration} mo</span>
@@ -265,18 +267,18 @@ function SummaryPanel({ selections, duration, discount }) {
       <div className="summary-totals">
         <div className="summary-total-row main">
           <span>Monthly total</span>
-          <span className="summary-amount">\u00A3{monthlyTotal.toLocaleString()}</span>
+          <span className="summary-amount">£{monthlyTotal.toLocaleString()}</span>
         </div>
         {oneTimeTotal > 0 && (
           <div className="summary-total-row">
             <span>One-time fees</span>
-            <span className="summary-amount-sm">\u00A3{oneTimeTotal.toLocaleString()}</span>
+            <span className="summary-amount-sm">£{oneTimeTotal.toLocaleString()}</span>
           </div>
         )}
         <div className="summary-divider" />
         <div className="summary-total-row grand">
           <span>Est. {duration}-month total</span>
-          <span className="summary-grand-total">\u00A3{contractTotal.toLocaleString()}</span>
+          <span className="summary-grand-total">£{contractTotal.toLocaleString()}</span>
         </div>
       </div>
 
@@ -291,12 +293,12 @@ function SummaryPanel({ selections, duration, discount }) {
                 <span className="si-name">{item.name}</span>
                 {item.tier && <span className="si-tier">{item.tier}</span>}
                 <span className="si-price">
-                  {item.monthly !== undefined && item.monthly > 0 && `\u00A3${item.monthly.toLocaleString()}/mo`}
-                  {item.oneTime !== undefined && `\u00A3${item.oneTime.toLocaleString()} one-time`}
+                  {item.monthly !== undefined && item.monthly > 0 && `£${item.monthly.toLocaleString()}/mo`}
+                  {item.oneTime !== undefined && `£${item.oneTime.toLocaleString()} one-time`}
                   {item.label && item.label}
                 </span>
                 {item.setup !== undefined && (
-                  <span className="si-setup">+ \u00A3{item.setup.toLocaleString()} setup</span>
+                  <span className="si-setup">+ £{item.setup.toLocaleString()} setup</span>
                 )}
               </div>
             </div>
@@ -304,13 +306,13 @@ function SummaryPanel({ selections, duration, discount }) {
         </div>
       ) : (
         <div className="summary-empty">
-          <div className="summary-empty-icon">\uD83D\uDCCB</div>
+          <div className="summary-empty-icon">📋</div>
           <p>Select services to build your estimate</p>
         </div>
       )}
 
       {hasItems && (
-        <button className="cta-button">Get Started \u2192</button>
+        <button className="cta-button">Get Started →</button>
       )}
     </div>
   )
