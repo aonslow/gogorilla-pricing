@@ -1,0 +1,243 @@
+/* ============================================================
+   GoGorilla Design Tokens
+   Website Design Language — Canonical Reference
+   ============================================================ */
+
+:root {
+  /* — Colour: Primary — */
+  --gg-blue: #002ABF;
+  --gg-blue-hover: #0022A0;
+  --gg-blue-pressed: #001B82;
+  --gg-blue-light: #E8EDFF;
+  --gg-blue-muted: #6B82D6;
+
+  /* — Colour: Neutrals — */
+  --gg-black: #0A0A0A;
+  --gg-heading: #111111;
+  --gg-body: #3A3A3A;
+  --gg-muted: #6B6B6B;
+  --gg-border: #E2E2E2;
+  --gg-divider: #ECECEC;
+  --gg-surface: #FFFFFF;
+  --gg-surface-raised: #FAFAFA;
+  --gg-surface-subtle: #F5F5F5;
+  --gg-bg: #F9F9F9;
+  --gg-bg-warm: #F7F6F4;
+  --gg-white: #FFFFFF;
+
+  /* — Colour: Neumorphic Surfaces — */
+  --gg-neu-surface: rgb(237, 236, 235);
+  --gg-neu-surface-light: rgb(247, 247, 247);
+  --gg-neu-gradient: linear-gradient(168deg, var(--gg-neu-surface) -3%, var(--gg-neu-surface-light) 48.5856%, var(--gg-neu-surface) 117%);
+  --gg-neu-shadow:
+    rgba(224, 224, 224, 0.75) 10px 10px 25px 0px,
+    rgb(255, 255, 255) -10px -10px 25px 0px,
+    rgb(242, 240, 235) 10px -10px 50px 0px,
+    rgba(214, 211, 208, 0.6) -4px -4px 4px 0px inset,
+    rgb(255, 255, 255) 2px 2px 8px 0px inset,
+    rgb(255, 255, 255) -9px -6px 20px 0px;
+  --gg-neu-shadow-hover:
+    rgba(224, 224, 224, 0.85) 12px 12px 30px 0px,
+    rgb(255, 255, 255) -12px -12px 30px 0px,
+    rgb(242, 240, 235) 10px -10px 50px 0px,
+    rgba(214, 211, 208, 0.7) -5px -5px 5px 0px inset,
+    rgb(255, 255, 255) 2px 2px 10px 0px inset,
+    rgb(255, 255, 255) -10px -7px 24px 0px;
+  --gg-neu-radius: 16px;
+
+  /* — Colour: Primary Button Shadows — */
+  --gg-btn-primary-shadow:
+    rgba(255, 255, 255, 0.5) -2px -2px 2px -1px,
+    rgba(219, 227, 255, 0.69) 1px 1.5px 2px 0px inset,
+    rgba(123, 145, 227, 0.63) -2.5px -2px 2px 0px inset,
+    rgba(84, 84, 84, 0.35) 2px 2px 8px 0px,
+    rgba(0, 31, 145, 0.8) -1px -4px 20px 0px inset;
+  --gg-btn-primary-shadow-hover:
+    rgba(255, 255, 255, 0.5) -2px -2px 2px -1px,
+    rgba(219, 227, 255, 0.69) 2px 1.5px 2px 0px inset,
+    rgba(123, 145, 227, 0.63) -3.5px -3.5px 2px 0px inset,
+    rgba(84, 84, 84, 0.35) 2px 10px 8px 0px,
+    rgba(0, 31, 145, 0.8) -1px -4px 20px 0px inset;
+  --gg-btn-primary-bg-hover: linear-gradient(109deg, rgb(82, 177, 255) 0%, rgb(0, 42, 191) 100%);
+
+  /* — Colour: Decorative (3D asset palette — not for core UI) — */
+  --gg-decorative-gold: #D4A843;
+  --gg-decorative-pink: #E84B8A;
+  --gg-decorative-purple: #7B4FD4;
+  --gg-decorative-iridescent: linear-gradient(135deg, #E84B8A, #7B4FD4, #002ABF);
+
+  /* — Colour: Semantic — */
+  --gg-success: #0F8847;
+  --gg-success-light: #F0FFF4;
+  --gg-success-border: #C6F6D5;
+  --gg-warning: #E5A100;
+  --gg-warning-light: #FFF8E5;
+  --gg-warning-border: #F5E6B8;
+  --gg-warning-dark: #B8860B;
+  --gg-error: #D92D20;
+  --gg-error-light: #FFF5F5;
+  --gg-error-border: #FED7D7;
+  --gg-info: #002ABF;
+
+  /* — Colour: Loading — */
+  --gg-loading-track: #D7DEF5;
+
+  /* — Typography — */
+  --gg-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --gg-font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  --gg-fs-eyebrow: 0.75rem;
+  --gg-fs-caption: 0.8125rem;
+  --gg-fs-body: 1rem;
+  --gg-fs-body-lg: 1.125rem;
+  --gg-fs-card-title: 1.25rem;
+  --gg-fs-h4: 1.375rem;
+  --gg-fs-h3: 1.75rem;
+  --gg-fs-h2: 2.25rem;
+  --gg-fs-h1: 3rem;
+  --gg-fs-hero: 4rem;
+  --gg-fs-stat: 3.5rem;
+  --gg-fs-step-number: 2.5rem;
+
+  --gg-fw-regular: 400;
+  --gg-fw-medium: 500;
+  --gg-fw-semibold: 600;
+  --gg-fw-bold: 700;
+  --gg-fw-extrabold: 800;
+
+  --gg-lh-tight: 1.1;
+  --gg-lh-heading: 1.2;
+  --gg-lh-body: 1.65;
+  --gg-lh-relaxed: 1.8;
+
+  --gg-ls-eyebrow: 0.08em;
+  --gg-ls-heading: -0.02em;
+
+  /* — Spacing — */
+  --gg-space-2xs: 0.25rem;
+  --gg-space-xs: 0.5rem;
+  --gg-space-sm: 0.75rem;
+  --gg-space-md: 1rem;
+  --gg-space-lg: 1.5rem;
+  --gg-space-xl: 2rem;
+  --gg-space-2xl: 3rem;
+  --gg-space-3xl: 4rem;
+  --gg-space-4xl: 6rem;
+  --gg-space-5xl: 8rem;
+  --gg-space-6xl: 10rem;
+
+  /* — Layout — */
+  --gg-content-max: 1320px;
+  --gg-content-narrow: 900px;
+  --gg-sidebar-width: 260px;
+  --gg-content-padding: 2rem;
+
+  /* — Radius — */
+  --gg-radius-sm: 8px;
+  --gg-radius-md: 12px;
+  --gg-radius-lg: 20px;
+  --gg-radius-xl: 24px;
+  --gg-radius-pill: 100px;
+  --gg-radius-circle: 50%;
+
+  /* — Shadows — */
+  --gg-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --gg-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --gg-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --gg-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.10);
+  --gg-shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.12);
+  --gg-shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --gg-shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.10);
+  --gg-shadow-elevated: 0 12px 40px rgba(0, 0, 0, 0.12);
+  --gg-shadow-overlay: 0 20px 60px rgba(0, 0, 0, 0.2), 0 4px 16px rgba(0, 0, 0, 0.1);
+
+  /* — Transitions — */
+  --gg-transition-fast: 150ms ease;
+  --gg-transition-base: 250ms ease;
+  --gg-transition-slow: 400ms ease;
+}
+
+/* — Dark Mode Token Overrides — */
+[data-theme="dark"] {
+  /* — Colour: Primary (brightened for dark backgrounds) — */
+  --gg-blue: #4D7AFF;
+  --gg-blue-hover: #6B8FFF;
+  --gg-blue-pressed: #3A66E5;
+  --gg-blue-light: #1A2347;
+  --gg-blue-muted: #8DA0E0;
+
+  /* — Colour: Neutrals — */
+  --gg-black: #F5F5F5;
+  --gg-heading: #EFEFEF;
+  --gg-body: #C8C8C8;
+  --gg-muted: #909090;
+  --gg-border: #333333;
+  --gg-divider: #2A2A2A;
+  --gg-surface: #1E1E1E;
+  --gg-surface-raised: #252525;
+  --gg-surface-subtle: #2A2A2A;
+  --gg-bg: #141414;
+  --gg-bg-warm: #1A1918;
+  --gg-white: #1E1E1E;
+
+  /* — Colour: Neumorphic Surfaces — */
+  --gg-neu-surface: rgb(45, 44, 43);
+  --gg-neu-surface-light: rgb(58, 57, 56);
+  --gg-neu-gradient: linear-gradient(168deg, var(--gg-neu-surface) -3%, var(--gg-neu-surface-light) 48.5856%, var(--gg-neu-surface) 117%);
+  --gg-neu-shadow:
+    rgba(0, 0, 0, 0.6) 10px 10px 25px 0px,
+    rgba(80, 80, 80, 0.15) -10px -10px 25px 0px,
+    rgba(0, 0, 0, 0.3) 10px -10px 50px 0px,
+    rgba(0, 0, 0, 0.4) -4px -4px 4px 0px inset,
+    rgba(80, 80, 80, 0.1) 2px 2px 8px 0px inset,
+    rgba(70, 70, 70, 0.12) -9px -6px 20px 0px;
+  --gg-neu-shadow-hover:
+    rgba(0, 0, 0, 0.7) 12px 12px 30px 0px,
+    rgba(80, 80, 80, 0.18) -12px -12px 30px 0px,
+    rgba(0, 0, 0, 0.35) 10px -10px 50px 0px,
+    rgba(0, 0, 0, 0.45) -5px -5px 5px 0px inset,
+    rgba(80, 80, 80, 0.12) 2px 2px 10px 0px inset,
+    rgba(70, 70, 70, 0.15) -10px -7px 24px 0px;
+
+  /* — Colour: Primary Button Shadows — */
+  --gg-btn-primary-shadow:
+    rgba(0, 0, 0, 0.3) -2px -2px 2px -1px,
+    rgba(100, 130, 255, 0.4) 1px 1.5px 2px 0px inset,
+    rgba(50, 70, 180, 0.5) -2.5px -2px 2px 0px inset,
+    rgba(0, 0, 0, 0.5) 2px 2px 8px 0px,
+    rgba(30, 50, 150, 0.6) -1px -4px 20px 0px inset;
+  --gg-btn-primary-shadow-hover:
+    rgba(0, 0, 0, 0.3) -2px -2px 2px -1px,
+    rgba(100, 130, 255, 0.5) 2px 1.5px 2px 0px inset,
+    rgba(50, 70, 180, 0.5) -3.5px -3.5px 2px 0px inset,
+    rgba(0, 0, 0, 0.5) 2px 10px 8px 0px,
+    rgba(30, 50, 150, 0.6) -1px -4px 20px 0px inset;
+  --gg-btn-primary-bg-hover: linear-gradient(109deg, rgb(82, 150, 255) 0%, rgb(50, 80, 220) 100%);
+
+  /* — Colour: Semantic — */
+  --gg-success: #34D673;
+  --gg-success-light: #0F2518;
+  --gg-success-border: #1A4028;
+  --gg-warning: #FFB84D;
+  --gg-warning-light: #2A2010;
+  --gg-warning-border: #4A3A18;
+  --gg-warning-dark: #E5A100;
+  --gg-error: #FF6B6B;
+  --gg-error-light: #2A1010;
+  --gg-error-border: #4A1818;
+  --gg-info: #4D7AFF;
+
+  /* — Colour: Loading — */
+  --gg-loading-track: #2A3050;
+
+  /* — Shadows (deeper for dark) — */
+  --gg-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --gg-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --gg-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --gg-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --gg-shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.45);
+  --gg-shadow-card: 0 2px 12px rgba(0, 0, 0, 0.3);
+  --gg-shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --gg-shadow-elevated: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --gg-shadow-overlay: 0 20px 60px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 0, 0, 0.4);
+}
