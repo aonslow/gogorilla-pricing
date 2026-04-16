@@ -1,40 +1,132 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-/* ===== Reset & Base ===== */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+/* ============================================================
+   GoGorilla Design Tokens
+   ============================================================ */
 :root {
-  --bg: #f5f6fa;
-  --surface: #ffffff;
-  --border: #e2e5f1;
-  --border-active: #4f46e5;
-  --text: #4b5563;
-  --text-heading: #1e1e2f;
-  --text-muted: #9ca3af;
-  --primary: #4f46e5;
-  --primary-light: #eef2ff;
-  --primary-bg: #f0edff;
-  --accent-green: #059669;
-  --accent-amber: #f59e0b;
-  --accent-red: #ef4444;
-  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.10);
-  --radius: 12px;
-  --radius-sm: 8px;
+  /* ── Colour: Primary ── */
+  --gg-blue: #002ABF;
+  --gg-blue-hover: #0022A0;
+  --gg-blue-pressed: #001B82;
+  --gg-blue-light: #E8EDFF;
+  --gg-blue-muted: #6B82D6;
+
+  /* ── Colour: Neutrals ── */
+  --gg-black: #0A0A0A;
+  --gg-heading: #111111;
+  --gg-body: #3A3A3A;
+  --gg-muted: #6B6B6B;
+  --gg-border: #E2E2E2;
+  --gg-divider: #ECECEC;
+  --gg-surface: #FFFFFF;
+  --gg-surface-raised: #FAFAFA;
+  --gg-surface-subtle: #F5F5F5;
+  --gg-bg: #F9F9F9;
+  --gg-white: #FFFFFF;
+
+  /* ── Colour: Neumorphic Surfaces ── */
+  --gg-neu-surface: rgb(237, 236, 235);
+  --gg-neu-surface-light: rgb(247, 247, 247);
+  --gg-neu-gradient: linear-gradient(168deg, var(--gg-neu-surface) -3%, var(--gg-neu-surface-light) 48.5856%, var(--gg-neu-surface) 117%);
+  --gg-neu-shadow:
+    rgba(224, 224, 224, 0.75) 10px 10px 25px 0px,
+    rgb(255, 255, 255) -10px -10px 25px 0px,
+    rgb(242, 240, 235) 10px -10px 50px 0px,
+    rgba(214, 211, 208, 0.6) -4px -4px 4px 0px inset,
+    rgb(255, 255, 255) 2px 2px 8px 0px inset,
+    rgb(255, 255, 255) -9px -6px 20px 0px;
+  --gg-neu-shadow-hover:
+    rgba(224, 224, 224, 0.85) 12px 12px 30px 0px,
+    rgb(255, 255, 255) -12px -12px 30px 0px,
+    rgb(242, 240, 235) 10px -10px 50px 0px,
+    rgba(214, 211, 208, 0.7) -5px -5px 5px 0px inset,
+    rgb(255, 255, 255) 2px 2px 10px 0px inset,
+    rgb(255, 255, 255) -10px -7px 24px 0px;
+  --gg-neu-radius: 16px;
+
+  /* ── Colour: Primary Button Shadows ── */
+  --gg-btn-primary-shadow:
+    rgba(255, 255, 255, 0.5) -2px -2px 2px -1px,
+    rgba(219, 227, 255, 0.69) 1px 1.5px 2px 0px inset,
+    rgba(123, 145, 227, 0.63) -2.5px -2px 2px 0px inset,
+    rgba(84, 84, 84, 0.35) 2px 2px 8px 0px,
+    rgba(0, 31, 145, 0.8) -1px -4px 20px 0px inset;
+  --gg-btn-primary-shadow-hover:
+    rgba(255, 255, 255, 0.5) -2px -2px 2px -1px,
+    rgba(219, 227, 255, 0.69) 2px 1.5px 2px 0px inset,
+    rgba(123, 145, 227, 0.63) -3.5px -3.5px 2px 0px inset,
+    rgba(84, 84, 84, 0.35) 2px 10px 8px 0px,
+    rgba(0, 31, 145, 0.8) -1px -4px 20px 0px inset;
+  --gg-btn-primary-bg-hover: linear-gradient(109deg, rgb(82, 177, 255) 0%, rgb(0, 42, 191) 100%);
+
+  /* ── Colour: Semantic ── */
+  --gg-success: #0F8847;
+  --gg-success-light: #F0FFF4;
+  --gg-warning: #E5A100;
+  --gg-warning-light: #FFF8E5;
+  --gg-error: #D92D20;
+
+  /* ── Typography ── */
+  --gg-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --gg-fs-caption: 0.8125rem;
+  --gg-fs-body: 1rem;
+  --gg-fs-body-lg: 1.125rem;
+  --gg-fs-card-title: 1.25rem;
+  --gg-fs-h4: 1.375rem;
+  --gg-fs-h3: 1.75rem;
+  --gg-fs-h2: 2.25rem;
+  --gg-fw-regular: 400;
+  --gg-fw-medium: 500;
+  --gg-fw-semibold: 600;
+  --gg-fw-bold: 700;
+  --gg-fw-extrabold: 800;
+  --gg-lh-body: 1.65;
+  --gg-lh-heading: 1.2;
+  --gg-ls-eyebrow: 0.08em;
+  --gg-ls-heading: -0.02em;
+
+  /* ── Spacing ── */
+  --gg-space-2xs: 0.25rem;
+  --gg-space-xs: 0.5rem;
+  --gg-space-sm: 0.75rem;
+  --gg-space-md: 1rem;
+  --gg-space-lg: 1.5rem;
+  --gg-space-xl: 2rem;
+  --gg-space-2xl: 3rem;
+
+  /* ── Radius ── */
+  --gg-radius-sm: 8px;
+  --gg-radius-md: 12px;
+  --gg-radius-lg: 20px;
+  --gg-radius-xl: 24px;
+  --gg-radius-pill: 100px;
+
+  /* ── Shadows ── */
+  --gg-shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --gg-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --gg-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --gg-shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.10);
+  --gg-shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --gg-shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.10);
+
+  /* ── Transitions ── */
+  --gg-transition-fast: 150ms ease;
+  --gg-transition-base: 250ms ease;
+  --gg-transition-slow: 400ms ease;
 }
 
+/* ===== Base ===== */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.5;
+  font-family: var(--gg-font-family);
+  background: var(--gg-bg);
+  color: var(--gg-body);
+  line-height: var(--gg-lh-body);
   -webkit-font-smoothing: antialiased;
 }
 
 /* ===== App Container ===== */
 .app {
-  max-width: 1280px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 32px 24px 64px;
 }
@@ -46,76 +138,114 @@ body {
 }
 
 .page-header h1 {
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--text-heading);
+  font-size: var(--gg-fs-h2);
+  font-weight: var(--gg-fw-bold);
+  color: var(--gg-heading);
+  letter-spacing: var(--gg-ls-heading);
   margin-bottom: 8px;
 }
 
 .page-header p {
-  font-size: 16px;
-  color: var(--text-muted);
+  font-size: var(--gg-fs-body);
+  color: var(--gg-muted);
   max-width: 520px;
   margin: 0 auto;
 }
 
-/* ===== Duration Tabs ===== */
+/* ===== Duration Tabs — Neumorphic Tray ===== */
 .duration-tabs {
+  display: inline-flex;
+  width: fit-content;
+  background-color: var(--gg-neu-surface);
+  border: none;
+  border-radius: var(--gg-neu-radius);
+  padding: var(--gg-space-xs);
+  gap: var(--gg-space-sm);
+  box-shadow:
+    rgb(191, 191, 191) 2px 2px 8px 0px inset,
+    rgba(255, 255, 255, 0.5) -2px 3px 0px;
+  margin: 0 auto 32px;
+}
+
+.duration-tabs-wrap {
   display: flex;
   justify-content: center;
-  gap: 4px;
   margin-bottom: 32px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 4px;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .duration-tab {
-  padding: 10px 24px;
-  border: none;
-  background: transparent;
-  border-radius: var(--radius-sm);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text);
+  padding: 14px 32px;
+  border: 1px solid transparent;
+  border-radius: var(--gg-radius-md);
+  box-sizing: border-box;
+  font-family: var(--gg-font-family);
+  font-size: var(--gg-fs-body);
+  font-weight: var(--gg-fw-semibold);
+  color: var(--gg-heading);
   cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
+  white-space: nowrap;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
+  transform: none;
+  opacity: 1;
+  will-change: transform;
+  transition: background 150ms ease-out, box-shadow 150ms ease-out, border-color 150ms ease-out;
+  background: linear-gradient(109deg, rgb(230, 230, 230) 13%, rgb(230, 230, 230) 100%);
+  box-shadow:
+    rgba(255, 255, 255, 0.36) -2px -2px 2px -1px,
+    rgba(255, 255, 255, 0.6) 1px 1.5px 2px 0px inset,
+    rgba(140, 139, 137, 0.29) -2px -2px 2px 0px inset,
+    rgba(224, 223, 222, 0.5) -2px -2px 8px 0px,
+    rgba(84, 84, 84, 0.14) 2px 2px 8px 0px,
+    rgba(179, 179, 179, 0.36) -1px -4px 20px 0px inset;
 }
 
 .duration-tab:hover {
-  background: var(--bg);
+  background: linear-gradient(109deg, rgb(242, 242, 242) 0%, rgb(230, 230, 230) 121%);
+  box-shadow:
+    rgba(222, 222, 222, 0.36) -2px -2px 2px -1px,
+    rgba(255, 255, 255, 0.84) 2px 2.5px 2px 0px inset,
+    rgba(140, 139, 137, 0.4) -3px -3px 3px 0px inset,
+    rgba(59, 59, 59, 0.24) 2px 10px 8px 0px,
+    rgba(179, 179, 179, 0.4) 1px -4px 20px 0px inset;
 }
 
 .duration-tab.active {
-  background: var(--primary);
-  color: white;
-  box-shadow: var(--shadow-sm);
+  background: linear-gradient(109deg, var(--gg-blue) 0%, var(--gg-blue) 100%);
+  color: var(--gg-white);
+  border: 1px solid transparent;
+  box-shadow: var(--gg-btn-primary-shadow);
+}
+
+.duration-tab.active:hover {
+  background: var(--gg-btn-primary-bg-hover);
+  border-color: rgba(0, 41, 191, 0.25);
+  box-shadow: var(--gg-btn-primary-shadow-hover);
 }
 
 .discount-tag {
   font-size: 11px;
-  font-weight: 600;
-  background: rgba(255,255,255,0.25);
-  padding: 2px 6px;
+  font-weight: var(--gg-fw-bold);
+  padding: 2px 8px;
   border-radius: 4px;
 }
 
+.duration-tab.active .discount-tag {
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
 .duration-tab:not(.active) .discount-tag {
-  background: #dcfce7;
-  color: var(--accent-green);
+  background: var(--gg-success-light);
+  color: var(--gg-success);
 }
 
 /* ===== Main Layout ===== */
 .main-layout {
   display: grid;
-  grid-template-columns: 1fr 360px;
+  grid-template-columns: 1fr 380px;
   gap: 28px;
   align-items: start;
 }
@@ -133,25 +263,27 @@ body {
 .services-col {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
-/* ===== Service Section ===== */
+/* ===== Service Section — Neumorphic Card ===== */
 .service-section {
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
+  background: var(--gg-neu-gradient);
+  border: none;
+  border-radius: var(--gg-neu-radius);
   overflow: hidden;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  box-shadow: var(--gg-neu-shadow);
+  transition: box-shadow var(--gg-transition-base);
 }
 
 .service-section:hover {
-  border-color: #ccd0e0;
+  box-shadow: var(--gg-neu-shadow-hover);
 }
 
 .service-section.has-selection {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 1px var(--primary), var(--shadow-sm);
+  box-shadow:
+    var(--gg-neu-shadow),
+    0 0 0 2px var(--gg-blue);
 }
 
 .service-header {
@@ -161,11 +293,11 @@ body {
   padding: 20px 24px;
   cursor: pointer;
   user-select: none;
-  transition: background 0.15s;
+  transition: background var(--gg-transition-fast);
 }
 
 .service-header:hover {
-  background: #fafafc;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .service-header-left {
@@ -180,9 +312,10 @@ body {
 }
 
 .service-name {
-  font-size: 17px;
-  font-weight: 600;
-  color: var(--text-heading);
+  font-size: var(--gg-fs-card-title);
+  font-weight: var(--gg-fw-bold);
+  color: var(--gg-heading);
+  letter-spacing: var(--gg-ls-heading);
 }
 
 .service-body {
@@ -196,26 +329,26 @@ body {
 }
 
 .service-desc {
-  font-size: 14px;
-  color: var(--text-muted);
+  font-size: var(--gg-fs-caption);
+  color: var(--gg-muted);
   margin-bottom: 20px;
-  line-height: 1.6;
+  line-height: var(--gg-lh-body);
 }
 
 /* ===== Tiers ===== */
 .tiers-label {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: var(--gg-fw-bold);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
+  letter-spacing: var(--gg-ls-eyebrow);
+  color: var(--gg-muted);
   margin-bottom: 12px;
 }
 
 .tiers-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 14px;
   margin-bottom: 24px;
 }
 
@@ -225,78 +358,105 @@ body {
   }
 }
 
+/* ===== Tier Card — Neumorphic Surface ===== */
 .tier-card {
   position: relative;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 16px;
+  background: var(--gg-surface);
+  border: 2px solid var(--gg-border);
+  border-radius: var(--gg-radius-md);
+  padding: 18px;
   cursor: pointer;
-  transition: all 0.2s;
-  background: var(--surface);
+  transition: all 200ms ease-out;
+  box-shadow:
+    inset 1px 1px 3px rgba(0, 0, 0, 0.03),
+    1px 1px 3px rgba(0, 0, 0, 0.04),
+    -1px -1px 2px rgba(255, 255, 255, 0.6);
 }
 
 .tier-card:hover {
-  border-color: #b8bcd0;
-  box-shadow: var(--shadow-sm);
+  border-color: var(--gg-blue-muted);
+  box-shadow:
+    inset 1px 1px 3px rgba(0, 0, 0, 0.03),
+    2px 2px 8px rgba(0, 0, 0, 0.06),
+    -1px -1px 3px rgba(255, 255, 255, 0.7);
 }
 
 .tier-card.selected {
-  border-color: var(--primary);
-  background: var(--primary-light);
-  box-shadow: 0 0 0 1px var(--primary);
+  border-color: var(--gg-blue);
+  background: var(--gg-blue-light);
+  box-shadow:
+    inset 1px 1px 3px rgba(0, 42, 191, 0.06),
+    0 0 0 3px var(--gg-blue-light),
+    2px 2px 8px rgba(0, 42, 191, 0.1);
 }
 
 .popular-badge {
   position: absolute;
   top: -1px;
   right: 12px;
-  background: var(--primary);
+  background: var(--gg-blue);
   color: white;
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  padding: 3px 8px;
-  border-radius: 0 0 6px 6px;
+  font-weight: var(--gg-fw-bold);
+  letter-spacing: var(--gg-ls-eyebrow);
+  padding: 3px 10px;
+  border-radius: 0 0 var(--gg-radius-sm) var(--gg-radius-sm);
 }
 
+/* ===== Radio — GoGorilla Style ===== */
 .tier-radio {
   margin-bottom: 10px;
 }
 
 .radio {
-  width: 18px;
-  height: 18px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  border: 2px solid var(--border);
+  border: 2px solid var(--gg-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.15s;
+  transition: all 200ms ease-out;
+  background: var(--gg-white);
+  box-shadow:
+    inset 1px 1px 3px rgba(0, 0, 0, 0.06),
+    1px 1px 3px rgba(0, 0, 0, 0.06),
+    -1px -1px 2px rgba(255, 255, 255, 0.7);
+  position: relative;
 }
 
 .radio.selected {
-  border-color: var(--primary);
+  background: linear-gradient(145deg, var(--gg-blue-hover), var(--gg-blue));
+  border-color: transparent;
+  box-shadow:
+    4px 4px 10px rgba(0, 42, 191, 0.35),
+    -2px -2px 6px rgba(255, 255, 255, 0.3),
+    inset 3px 3px 6px rgba(0, 0, 0, 0.2),
+    inset -2px -2px 4px rgba(100, 150, 255, 0.25);
 }
 
 .radio-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: var(--primary);
+  background: var(--gg-white);
+  box-shadow:
+    1px 1px 3px rgba(0, 0, 0, 0.15),
+    -1px -1px 2px rgba(255, 255, 255, 0.5);
 }
 
 .tier-name {
   font-size: 15px;
-  font-weight: 600;
-  color: var(--text-heading);
+  font-weight: var(--gg-fw-bold);
+  color: var(--gg-heading);
   margin-bottom: 4px;
 }
 
 .tier-desc {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--gg-muted);
   line-height: 1.5;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   min-height: 36px;
 }
 
@@ -309,49 +469,80 @@ body {
 
 .tier-price {
   font-size: 26px;
-  font-weight: 700;
-  color: var(--primary);
+  font-weight: var(--gg-fw-extrabold);
+  color: var(--gg-blue);
+}
+
+.tier-card.selected .tier-price {
+  color: var(--gg-blue-pressed);
 }
 
 .tier-unit {
-  font-size: 13px;
-  color: var(--text-muted);
-  font-weight: 500;
+  font-size: var(--gg-fs-caption);
+  color: var(--gg-muted);
+  font-weight: var(--gg-fw-medium);
 }
 
 .tier-setup {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--gg-muted);
 }
 
-/* ===== Checkbox ===== */
-.checkbox {
-  width: 20px;
-  height: 20px;
-  min-width: 20px;
-  border-radius: 5px;
-  border: 2px solid var(--border);
-  background: white;
+/* ===== Checkbox — GoGorilla Style ===== */
+.gg-checkbox-btn {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--gg-border);
+  border-radius: var(--gg-radius-sm);
+  background: var(--gg-white);
+  box-shadow:
+    inset 1px 1px 3px rgba(0, 0, 0, 0.06),
+    1px 1px 3px rgba(0, 0, 0, 0.06),
+    -1px -1px 2px rgba(255, 255, 255, 0.7);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.15s;
+  flex-shrink: 0;
   padding: 0;
+  transition: all 200ms ease-out;
 }
 
-.checkbox:hover {
-  border-color: var(--primary);
+.gg-checkbox-btn:hover {
+  border-color: var(--gg-blue-muted);
+  box-shadow:
+    inset 1px 1px 3px rgba(0, 0, 0, 0.06),
+    2px 2px 6px rgba(0, 0, 0, 0.08),
+    -1px -1px 3px rgba(255, 255, 255, 0.8);
 }
 
-.checkbox.checked {
-  background: var(--primary);
-  border-color: var(--primary);
+.gg-checkbox-btn.checked {
+  background: linear-gradient(109deg, var(--gg-blue) 0%, var(--gg-blue) 100%);
+  border-color: transparent;
+  box-shadow: var(--gg-btn-primary-shadow);
+  transform: scale(1.05);
+}
+
+.gg-checkbox-btn.checked:hover {
+  background: var(--gg-btn-primary-bg-hover);
+  box-shadow: var(--gg-btn-primary-shadow-hover);
+}
+
+.gg-checkbox-btn svg {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.gg-checkbox-btn.checked svg {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* ===== Add-ons ===== */
 .addons-section {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--gg-divider);
   padding-top: 20px;
 }
 
@@ -363,9 +554,9 @@ body {
 }
 
 .addons-header h4 {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-heading);
+  font-size: var(--gg-fs-body-lg);
+  font-weight: var(--gg-fw-bold);
+  color: var(--gg-heading);
 }
 
 .addons-icon {
@@ -373,10 +564,10 @@ body {
 }
 
 .addons-subtitle {
-  font-size: 13px;
-  color: var(--text-muted);
+  font-size: var(--gg-fs-caption);
+  color: var(--gg-muted);
   margin-bottom: 16px;
-  line-height: 1.5;
+  line-height: var(--gg-lh-body);
 }
 
 .addons-list {
@@ -385,20 +576,46 @@ body {
   gap: 10px;
 }
 
+/* ===== Addon Card — Boxed Checkbox Card ===== */
 .addon-card {
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--gg-white);
+  border: 2px solid var(--gg-border);
+  border-radius: var(--gg-radius-md);
   padding: 14px 16px;
-  transition: all 0.2s;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow:
+    inset 1px 1px 3px rgba(0, 0, 0, 0.03),
+    1px 1px 3px rgba(0, 0, 0, 0.04),
+    -1px -1px 2px rgba(255, 255, 255, 0.6);
 }
 
 .addon-card:hover {
-  border-color: #ccd0e0;
+  border-color: var(--gg-blue-muted);
+  box-shadow:
+    inset 1px 1px 3px rgba(0, 0, 0, 0.03),
+    2px 2px 8px rgba(0, 0, 0, 0.06),
+    -1px -1px 3px rgba(255, 255, 255, 0.7);
 }
 
 .addon-card.selected {
-  border-color: var(--primary);
-  background: var(--primary-light);
+  border-color: var(--gg-blue);
+  background: var(--gg-blue-light);
+  box-shadow:
+    inset 1px 1px 3px rgba(0, 42, 191, 0.06),
+    0 0 0 3px var(--gg-blue-light),
+    2px 2px 8px rgba(0, 42, 191, 0.1);
+}
+
+.addon-card.selected:hover {
+  box-shadow:
+    inset 1px 1px 3px rgba(0, 42, 191, 0.06),
+    0 0 0 3px var(--gg-blue-light),
+    3px 3px 12px rgba(0, 42, 191, 0.14);
 }
 
 .addon-top {
@@ -424,15 +641,15 @@ body {
 
 .addon-name {
   font-size: 14px;
-  font-weight: 600;
-  color: var(--text-heading);
+  font-weight: var(--gg-fw-semibold);
+  color: var(--gg-heading);
 }
 
 .recommended-badge {
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  background: #fef3c7;
+  font-weight: var(--gg-fw-bold);
+  letter-spacing: var(--gg-ls-eyebrow);
+  background: var(--gg-warning-light);
   color: #b45309;
   padding: 2px 8px;
   border-radius: 4px;
@@ -441,41 +658,42 @@ body {
 
 .addon-price {
   font-size: 15px;
-  font-weight: 700;
-  color: var(--primary);
+  font-weight: var(--gg-fw-bold);
+  color: var(--gg-blue);
   white-space: nowrap;
 }
 
 .addon-unit {
   font-size: 12px;
-  font-weight: 500;
-  color: var(--text-muted);
+  font-weight: var(--gg-fw-medium);
+  color: var(--gg-muted);
 }
 
 .custom-price {
-  color: var(--text-heading);
+  color: var(--gg-heading);
   font-style: italic;
 }
 
 .addon-desc {
-  font-size: 13px;
-  color: var(--text-muted);
+  font-size: var(--gg-fs-caption);
+  color: var(--gg-muted);
   line-height: 1.5;
   margin-top: 8px;
-  padding-left: 32px;
+  padding-left: 40px;
 }
 
-/* ===== Summary Panel ===== */
+/* ===== Summary Panel — Neumorphic ===== */
 .summary-col {
   position: sticky;
   top: 24px;
 }
 
 .summary-panel {
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
+  background: var(--gg-neu-gradient);
+  border: none;
+  border-radius: var(--gg-neu-radius);
   overflow: hidden;
+  box-shadow: var(--gg-neu-shadow);
 }
 
 .summary-top {
@@ -483,27 +701,27 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 20px 20px 16px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--gg-divider);
 }
 
 .summary-title {
-  font-size: 17px;
-  font-weight: 700;
-  color: var(--text-heading);
+  font-size: var(--gg-fs-card-title);
+  font-weight: var(--gg-fw-bold);
+  color: var(--gg-heading);
 }
 
 .summary-badge {
   font-size: 12px;
-  font-weight: 600;
-  background: var(--primary-bg);
-  color: var(--primary);
-  padding: 4px 10px;
-  border-radius: 20px;
+  font-weight: var(--gg-fw-semibold);
+  background: var(--gg-blue-light);
+  color: var(--gg-blue);
+  padding: 4px 12px;
+  border-radius: var(--gg-radius-pill);
 }
 
 .summary-totals {
   padding: 16px 20px;
-  background: #fafafc;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 .summary-total-row {
@@ -512,40 +730,40 @@ body {
   align-items: center;
   padding: 4px 0;
   font-size: 14px;
-  color: var(--text);
+  color: var(--gg-body);
 }
 
 .summary-total-row.main {
-  font-weight: 500;
+  font-weight: var(--gg-fw-medium);
 }
 
 .summary-amount {
   font-size: 22px;
-  font-weight: 700;
-  color: var(--text-heading);
+  font-weight: var(--gg-fw-extrabold);
+  color: var(--gg-heading);
 }
 
 .summary-amount-sm {
   font-size: 15px;
-  font-weight: 600;
-  color: var(--text);
+  font-weight: var(--gg-fw-semibold);
+  color: var(--gg-body);
 }
 
 .summary-divider {
   height: 1px;
-  background: var(--border);
+  background: var(--gg-divider);
   margin: 10px 0;
 }
 
 .summary-total-row.grand {
-  font-weight: 600;
-  color: var(--text-heading);
+  font-weight: var(--gg-fw-semibold);
+  color: var(--gg-heading);
 }
 
 .summary-grand-total {
   font-size: 26px;
-  font-weight: 700;
-  color: var(--primary);
+  font-weight: var(--gg-fw-extrabold);
+  color: var(--gg-blue);
 }
 
 .summary-items {
@@ -556,10 +774,10 @@ body {
 
 .summary-items-label {
   font-size: 11px;
-  font-weight: 600;
+  font-weight: var(--gg-fw-bold);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-muted);
+  letter-spacing: var(--gg-ls-eyebrow);
+  color: var(--gg-muted);
   margin-bottom: 12px;
 }
 
@@ -571,7 +789,7 @@ body {
 }
 
 .summary-item + .summary-item {
-  border-top: 1px solid #f0f1f5;
+  border-top: 1px solid var(--gg-divider);
 }
 
 .summary-item.addon {
@@ -591,8 +809,8 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 14px;
-  font-weight: 600;
-  color: var(--primary);
+  font-weight: var(--gg-fw-bold);
+  color: var(--gg-blue);
 }
 
 .si-details {
@@ -603,26 +821,26 @@ body {
 }
 
 .si-name {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-heading);
+  font-size: var(--gg-fs-caption);
+  font-weight: var(--gg-fw-semibold);
+  color: var(--gg-heading);
 }
 
 .si-tier {
   font-size: 11px;
-  color: var(--primary);
-  font-weight: 500;
+  color: var(--gg-blue);
+  font-weight: var(--gg-fw-medium);
 }
 
 .si-price {
   font-size: 12px;
-  color: var(--text);
-  font-weight: 500;
+  color: var(--gg-body);
+  font-weight: var(--gg-fw-medium);
 }
 
 .si-setup {
   font-size: 11px;
-  color: var(--text-muted);
+  color: var(--gg-muted);
 }
 
 /* ===== Empty State ===== */
@@ -639,31 +857,39 @@ body {
 
 .summary-empty p {
   font-size: 14px;
-  color: var(--text-muted);
+  color: var(--gg-muted);
 }
 
-/* ===== CTA Button ===== */
+/* ===== CTA Button — GoGorilla Primary ===== */
 .cta-button {
   display: block;
   width: calc(100% - 40px);
   margin: 4px 20px 20px;
-  padding: 14px;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: var(--radius-sm);
-  font-size: 15px;
-  font-weight: 600;
+  padding: 14px 32px;
+  background: linear-gradient(109deg, var(--gg-blue) 0%, var(--gg-blue) 100%);
+  color: var(--gg-white);
+  border: 1px solid transparent;
+  border-radius: var(--gg-radius-md);
+  font-family: var(--gg-font-family);
+  font-size: var(--gg-fs-body);
+  font-weight: var(--gg-fw-semibold);
   cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
+  box-shadow: var(--gg-btn-primary-shadow);
+  transition: transform 200ms ease-out, background 200ms ease-out, box-shadow 200ms ease-out;
+  will-change: transform;
 }
 
 .cta-button:hover {
-  background: #4338ca;
+  background: var(--gg-btn-primary-bg-hover);
+  border-color: rgba(0, 41, 191, 0.25);
+  transform: scale(1.02);
+  box-shadow: var(--gg-btn-primary-shadow-hover);
 }
 
 .cta-button:active {
-  transform: scale(0.98);
+  background: linear-gradient(109deg, var(--gg-blue-pressed) 0%, var(--gg-blue-pressed) 100%);
+  box-shadow: var(--gg-shadow-xs);
+  transform: translateY(1px);
 }
 
 /* ===== Scrollbar ===== */
@@ -676,6 +902,12 @@ body {
 }
 
 .summary-items::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: var(--gg-border);
   border-radius: 4px;
+}
+
+/* ===== Chevron ===== */
+.chevron-icon {
+  color: var(--gg-muted);
+  transition: transform 0.25s ease;
 }
