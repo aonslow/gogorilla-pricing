@@ -38,8 +38,40 @@ export function ComponentsSection() {
       <p className="section-description">
         Documented below are the core reusable UI components observed across the GoGorilla
         website. Each includes a rendered preview, anatomy breakdown, and usage guidance
-        reflecting the website&rsquo;s established patterns.
+        reflecting the website's established patterns.
       </p>
+
+      {/* ── Buttons ── */}
+      <div id="comp-buttons">
+        <h3 className="section-subtitle">Buttons</h3>
+
+        <ComponentShowcase
+          title="Primary Button"
+          description="The primary call-to-action button used for conversion-critical actions like 'Get Started', 'Book a Call', and form submissions. Always rendered in brand blue with white text."
+          anatomy={[
+            'Container: brand blue (#002ABF) fill with 12 px rounded radius',
+            'Label: white text, semibold weight, centered',
+            'Optional trailing arrow or icon',
+            'Multi-layer inset and outer box-shadow for tactile depth',
+          ]}
+          usage={[
+            'One primary CTA per viewport section is the established pattern',
+            'Used for the highest-priority action on the page',
+            'Never stack multiple primary buttons adjacent to each other',
+            'Pair with secondary links, not secondary buttons',
+          ]}
+        >
+          <div className="button-preview-row">
+            <button className="gg-btn gg-btn--primary">Get Started</button>
+            <button className="gg-btn gg-btn--primary">
+              Get Started <span className="gg-btn__arrow">&rsaquo;</span>
+            </button>
+            <button className="gg-btn gg-btn--primary gg-btn--hover">Hover State</button>
+            <button className="gg-btn gg-btn--primary gg-btn--pressed">Pressed</button>
+            <button className="gg-btn gg-btn--primary" disabled>Disabled</button>
+          </div>
+        </ComponentShowcase>
+      </div>
     </section>
   );
 }
